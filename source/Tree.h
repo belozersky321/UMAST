@@ -82,7 +82,7 @@ void treeDelete(Tree* tree);
 double readLength(char* string, unsigned* pos);
 char* readName(char* string, unsigned* pos);
 Tree* treeCopy(Tree* source, char copyLCAFinder);
-Tree* treeFromNewick(char* newick);
+Tree* treeFromNewick(char* newick, int unroored);
 char* treeToString(Tree* tree);
 void treeWash(Tree* tree);
 Tree* treeAddLeaf(Tree* tree, unsigned nodeID, unsigned neighbourID, char* leafName,
@@ -91,7 +91,7 @@ Tree* treeRemoveLeaf(Tree* tree, unsigned leafPos, char newTree, char calcLCAFin
 
 unsigned treeWhichSplit(Tree* tree, unsigned leaf1, unsigned leaf2, unsigned leaf3, unsigned leaf4);
 void treeWrite(Tree* tree, char* outFileName);
-Tree* treeRead(char* inFileName);
+Tree* treeRead(char* inFileName, int unrooted);
 
 void  treeLCAFinderCalculate(Tree* tree);
 LCAFinder* lcaFinderCreate(void);
