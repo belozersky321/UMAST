@@ -1485,7 +1485,6 @@ void RMAST(Tree* intree1, Tree* intree2)
     sortedSet1 = treeRootAndTopSort(tree1, 1, 0, setPermutation1, 0);
     sortedSet2 = treeRootAndTopSort(tree2, 1, 0, setPermutation2, 0);
     maxbranch = MAST(tree1, tree2, sortedSet1, sortedSet2, setPermutation1, setPermutation2);
-    branchPrint(maxbranch);
     result = makeUMASTTree(maxbranch, tree1);
     branchDelete(maxbranch);
     free(sortedSet1);
@@ -1572,7 +1571,6 @@ int main(int argc, char** argv){
     struct tm* aTm = localtime(&t);
     if (unrooted)
     {
-        printf("unrooted tree case\n");
         logfile = fopen("umast.log", "w");
         fprintf(logfile, "UMAST execution started\n");
         fprintf(logfile, "%04d/%02d/%02d %02d:%02d:%02d\n", aTm->tm_year+1900, aTm->tm_mon+1,\
@@ -1588,7 +1586,6 @@ int main(int argc, char** argv){
     }
     else
     {
-        printf("rooted tree case\n");
         logfile = fopen("rmast.log", "w");
         fprintf(logfile, "RMAST execution started\n");
         fprintf(logfile, "%04d/%02d/%02d %02d:%02d:%02d\n", aTm->tm_year+1900, aTm->tm_mon+1,\
