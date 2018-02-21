@@ -1012,9 +1012,9 @@ Branch* MAST(Tree* intree1, Tree* intree2, unsigned* set1, unsigned* set2, unsig
                         if (TAB[b][x] == NULL && TAB[c][y] == NULL)
                             TAB[posT][posU] = NULL;
                         else if (TAB[b][x] == NULL && TAB[c][y] != NULL)
-                            TAB[posT][posU] = TAB[c][y];
+                            TAB[posT][posU] = branchCopy(TAB[c][y]);
                         else if (TAB[b][x] != NULL && TAB[c][y] == NULL)
-                            TAB[posT][posU] = TAB[b][x];
+                            TAB[posT][posU] = branchCopy(TAB[b][x]);
                         else //both subtrees exist
                         {
                             TAB[posT][posU] = branchOr(TAB[b][x], TAB[c][y]);
@@ -1050,6 +1050,7 @@ Branch* MAST(Tree* intree1, Tree* intree2, unsigned* set1, unsigned* set2, unsig
                     }
                 }
             }
+            branchCalculateLeavesPosNum(TAB[posT][posU]);
             posU++;
         }
         posT++;
