@@ -42,7 +42,8 @@ unsigned* branchToLeavesArr(Branch* br, unsigned leavesNum);
 int** getAllRoots(Tree* tree);
 int* getRandMaxBranch(Branch*** TAB, int rows, int cols);
 Tree* makeMAST(Branch* br, Tree* tree1);
-int* countVariants(Branch*** TAB, int a, int w, int b, int c, int x, int y);
+void countVariants(Branch*** TAB, int a, int w, int b, int c, int x, int y,
+    int* bestValue, int* bestPos);
 Branch* MAST(Tree* tree1, Tree* tree2, unsigned* set1, unsigned* set2, unsigned* setPermutation1, unsigned* setPermutation2);
 Branch* UMASTStep(Tree* intree1, Tree* intree2, unsigned* set1, unsigned* set2,
     unsigned* setPermutation1, unsigned* setPermutation2, Branch**** TAB, Branch** rootRow,
