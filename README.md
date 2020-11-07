@@ -21,7 +21,9 @@ Output
 ------
 stdout: distance between trees calculated as number of leaves in resulting 
 agreement subtree or L-distance between input trees.
+
 umast.tre: file containing maximum agreement subtree in Newick format.
+
 umast.log: text file containing log information about run.
 
 ----------------------
