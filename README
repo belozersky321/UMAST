@@ -19,11 +19,14 @@ Output
 ------
 stdout: distance between trees calculated as number of leaves in resulting 
 agreement subtree or L-distance between input trees.
+
 umast.tre: file containing maximum agreement subtree in Newick format.
+
 umast.log: text file containing log information about run.
 
 ----------------------
 Command line arguments
+----------------------
 
 -r option for rooted trees
 
@@ -32,5 +35,5 @@ Command line arguments
 -l path to log file, default ./umast.log
 
 -d Print L-distance to stdout instead of agreement subtree size.
-----------------------
+
 ./umast -1 tree1_path -2 tree2_path [-r] [-o outtreefile] [-l logfile] [-d]
