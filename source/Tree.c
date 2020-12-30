@@ -360,7 +360,15 @@ Tree* treeFromNewick(char* newick, char rooted){
     tree->leaves = leaves;
     tree->leavesNum = leavesNum;
     tree->nodesNum = nodesNum;
-
+    
+    //bad behaviour on consensus | MrBayes unresolved trees
+    for (i=0; i < tree->nodesNum; i++){ 
+        if (tree->nodes[i]->neiNum > 3){
+            fprintf(stderr, "Error: tree is not binary, %d neighbours at node %d\n", tree->nodes[i]->neiNum, i);
+            exit(1);
+        }
+    }
+    
     treeLCAFinderCalculate(tree);
 
     return tree;
