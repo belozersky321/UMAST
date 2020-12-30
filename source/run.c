@@ -51,6 +51,10 @@ static void runRMAST(Tree* intree1,
     fprintf(logfile, "The maximum agreement subtree: %s\n", tempStr);
 
     FILE* out = fopen(mast_treepath, "w");
+    if (out == NULL){
+        fprintf(stderr, "Error: cannot open outfile.\n");
+        exit(EACCES);
+    } 
     fputs(tempStr, out);
     fclose(out);
     free(tempStr);
@@ -109,6 +113,10 @@ static void runUMAST(Tree* intree1,
     fprintf(logfile, "The maximum agreement subtree: %s\n", tempStr);
 
     FILE* out = fopen(mast_treepath, "w");
+    if (out == NULL){
+        fprintf(stderr, "Error: cannot open outfile.\n");
+        exit(EACCES);
+    } 
     fputs(tempStr, out);
     fclose(out);
     free(tempStr);
@@ -245,6 +253,10 @@ int main(int argc, char** argv) {
         logfile = fopen("umast.log", "w");
     }else{
         logfile = fopen(args->log_path, "w");
+    }
+    if (logfile==NULL){
+        fprintf(stderr, "Error: cannot open log file.\n");
+        exit(EACCES);
     }
 
     if (args->rooted){
