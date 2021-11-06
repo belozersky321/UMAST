@@ -135,20 +135,20 @@ static void runUMAST(Tree* intree1,
     treeDelete(tree2);
 } //runUMAST
 
-void showShortHelp(){
-    puts("usage: mast -1 tree1_path -2 tree2_path [-r] [-o outtreefile] [-l logfile] [-d]");
+void showShortHelp(char *program_name){
+    printf("Usage: %s -1 tree1 -2 tree2 [-r] [-o outtree] [-l logfile] [-d]\n", program_name);
     exit(0);
 }
 
-void showLongHelp(){
-    puts("usage: mast -1/--tree1 tree1_path -2/--tree2 tree2_path");
+void showLongHelp(char *program_name){
+    printf("Usage: %s -1/--tree1 tree1_path -2/--tree2 tree2_path\n", program_name);
     puts("[-r/--rooted rooted] [-o/--outfile outtreefile] [-l/--logfile logfile] [-d/--distance distance]");
-    puts("-1/tree1 - path to the first tree file in Newick format");
-    puts("-2/tree2 - path to the second tree file in Newick format");
-    puts("-r/rooted - are trees rooted (search for the unrooted or the rooted MAST)");
-    puts("-o/--outfile - path to write found MAST in Newick format (default: umast.tre)");
-    puts("-l/--logfile - path to write logs (default: umast.log)");
-    puts("-d/--distance - return corresponding L-distance instead of umast size to stdout");
+    puts("-1/--tree1 path to the first tree file in Newick format");
+    puts("-2/--tree2 path to the second tree file in Newick format");
+    puts("-r/--rooted are trees rooted (search for the unrooted or the rooted MAST)");
+    puts("-o/--outfile path to file for writing found MAST in Newick format (default: umast.tre)");
+    puts("-l/--logfile path to file for writing logs (default: umast.log)");
+    puts("-d/--distance print L-distance between input trees instead of UMAST size to stdout");
     exit(0);
 }
 
@@ -210,9 +210,9 @@ Args* argsParse(int argc, char** argv){
             case 'h':
                 fprintf(stdout, "%d\n", option_index); //!!!!!!!
                 if (option_index > 0){ // --help
-                    showLongHelp();
+                    showLongHelp(argv[0]);
                 }else{ // -h
-                    showShortHelp();
+                    showShortHelp(argv[0]);
                 }
                 break;
             case '?':
@@ -239,7 +239,6 @@ Args* argsParse(int argc, char** argv){
 
     return args;
 }
-
 
 int main(int argc, char** argv) {
     Tree* tree1;
